@@ -18,4 +18,8 @@
 #                                                                                                           #
 #############################################################################################################
 
-add_executable(Postage-Stamp-Problem Interface.cpp Interface.hpp)
+add_executable(PostageStampProblemInterface Interface.cpp Interface.hpp)
+
+target_link_libraries(PostageStampProblemInterface PostageStampProblem::Backend)
+
+add_executable(PostageStampProblem::Interface ALIAS PostageStampProblemInterface)

@@ -18,3 +18,9 @@
 #                                                                                                           #
 #############################################################################################################
 
+add_library(PostageStampProblemBackend STATIC ElevenByThirteen.cpp ElevenByThirteen.hpp Utils.hpp include/PostageStampProblem/Backend.hpp)
+
+target_include_directories(PostageStampProblemBackend INTERFACE include)
+
+add_library(PostageStampProblem::Backend ALIAS PostageStampProblemBackend)
+

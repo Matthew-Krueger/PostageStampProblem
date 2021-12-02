@@ -22,8 +22,18 @@
 #define POSTAGE_STAMP_PROBLEM_INTERFACE_HPP
 
 #include <iosfwd>
+#include <cstdint>
 
-namespace PostageStampTheorem{
+namespace PostageStampProblem{
+
+    /**
+     * Prints the interface for the 11x13 bit
+     */
+    void elevenByThirteenInterface();
+
+    void warrenty();
+    void conditions();
+    void g();
 
 };
 

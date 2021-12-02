@@ -1,4 +1,4 @@
-#############################################################################################################
+/*###########################################################################################################
 #                                                                                                           #
 #    Postage Stamp Problem - Explains the Postage Stamp problem also known as the Chicken McNuggett Theorem #
 #    Copyright (C) 2021 Matthew Krueger <contact@matthewkrueger.com>                                        #
@@ -16,15 +16,62 @@
 #    You should have received a copy of the GNU General Public License                                      #
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.                                 #
 #                                                                                                           #
-#############################################################################################################
+###########################################################################################################*/
 
 
-project("Postage Stamp Problem" CXX)
+#ifndef POSTAGE_STAMP_PROBLEM_UTILS_HPP
+#define POSTAGE_STAMP_PROBLEM_UTILS_HPP
 
-cmake_minimum_required(VERSION 3.20)
-set(CMAKE_CXX_STANDARD 17)
+#include <vector>
+#include <cstdint>
+#include <sstream>
 
-add_library(DependenciesMeta INTERFACE)
+namespace PostageStampProblem::Backend{
 
-add_subdirectory(Dependencies)
-add_subdirectory(Source)
+    template<typename T>
+    uint32_t sumVector(const std::vector<T>& vector){
+
+        uint32_t sum = 0;
+        for(T n:vector){
+            sum+=n;
+        }
+
+        return sum;
+
+    }
+
+    template<typename T>
+    std::string formatVector(const std::vector<T>& vector){
+
+        std::stringstream result;
+
+        bool firstFlag = false;
+        for(T number:vector){
+
+            if(firstFlag){
+                result << '+';
+            }
+            firstFlag = true;
+
+           result << (int)number;
+
+        }
+
+        return result.str();
+
+    }
+
+    template<typename T>
+    inline std::vector<T>& pushback_repeated(std::vector<T>& vector, T number, uint32_t count){
+
+        for(unsigned int i=0; i<count; ++i){
+            vector.push_back(number);
+        }
+
+        return vector;
+
+    }
+
+}
+
+#endif //POSTAGE_STAMP_PROBLEM_UTILS_HPP

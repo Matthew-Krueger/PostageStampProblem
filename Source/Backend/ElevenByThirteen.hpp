@@ -1,4 +1,4 @@
-#############################################################################################################
+/*###########################################################################################################
 #                                                                                                           #
 #    Postage Stamp Problem - Explains the Postage Stamp problem also known as the Chicken McNuggett Theorem #
 #    Copyright (C) 2021 Matthew Krueger <contact@matthewkrueger.com>                                        #
@@ -16,15 +16,18 @@
 #    You should have received a copy of the GNU General Public License                                      #
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.                                 #
 #                                                                                                           #
-#############################################################################################################
+###########################################################################################################*/
 
 
-project("Postage Stamp Problem" CXX)
+#ifndef POSTAGE_STAMP_PROBLEM_ELEVENBYTHIRTEEN_HPP
+#define POSTAGE_STAMP_PROBLEM_ELEVENBYTHIRTEEN_HPP
 
-cmake_minimum_required(VERSION 3.20)
-set(CMAKE_CXX_STANDARD 17)
+#include <vector>
 
-add_library(DependenciesMeta INTERFACE)
+namespace PostageStampProblem::Backend{
 
-add_subdirectory(Dependencies)
-add_subdirectory(Source)
+    std::vector<uint8_t> elevenByThirteen(uint32_t target);
+
+}
+
+#endif //POSTAGE_STAMP_PROBLEM_ELEVENBYTHIRTEEN_HPP
