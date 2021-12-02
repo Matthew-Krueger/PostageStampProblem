@@ -23,6 +23,7 @@
 #include "ElevenByThirteen.hpp"
 #include "Utils.hpp"
 
+/* This maps how many thirteens are in each item, useful for mapping the cycle on to the result */
 static uint8_t thirteenMap[] = {5,0,6,1,7,2,8,3,9,4,10};
 
 namespace PostageStampProblem::Backend{
