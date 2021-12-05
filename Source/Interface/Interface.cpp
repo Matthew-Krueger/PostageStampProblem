@@ -57,7 +57,7 @@ int main(int argc, char** argv){
 
     }
 
-    std::cout << "\nThank you for using the application!";
+    std::cout << "\nThank you for using the application!\n";
 
     return 0;
 
@@ -72,6 +72,7 @@ namespace PostageStampProblem{
 
             uint32_t selection = 0;
 
+	    /* ask for a number */
             std::cout << "\n11x13 Postage Stamp Problem. The minimum number you can have is ((11*13) - 11 - 13 + 1) or "
                       << minimum << ".\n" <<
                       "Select the number you would like to see (or 0 to return to to the previous menu): ";
@@ -83,18 +84,23 @@ namespace PostageStampProblem{
                 continue;
             };
 
+	    /* Process the numbers and get a vector back of the numbers */
             std::cout << '\n';
             std::cout << "Processing....\n";
             auto numbers = Backend::elevenByThirteen(selection);
 
+	    /* Ensure what we generated is correct */
             std::cout << "Verifying.....\n";
             if(selection != Backend::sumVector(numbers)){
                 std::cout << "There was an error coming up with your selection.\n";
                 std::cout << Backend::formatVector(numbers) << " != " << selection;
             }
-            std::cout << "Verified\n";
-            std::cout << Backend::formatVector(numbers) << " == " << selection;
 
+	    /* Finally, print the vector */
+            std::cout << "Verified\n\n";
+            std::cout << Backend::formatVector(numbers) << " == " << selection;
+	    std::cout << "\n\n";
+	    
         }
     }
 
